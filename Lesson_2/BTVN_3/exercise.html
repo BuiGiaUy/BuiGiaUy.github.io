@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        background-color: #f1f4f6;
+      }
+      .container {
+        margin: 0 auto;
+      }
+      .title {
+        margin: 0 auto 40px;
+        padding-left: 540px;
+      }
+      .card {
+        background-color: #fff;
+        width: 250px;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+      .card img {
+        box-shadow: 20px;
+        width: 100%;
+        height: 100%;
+      }
+      .card h3 {
+        font-family: Segoe UI;
+        text-align: center;
+        color: #ef7a11;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+      .card ul {
+        padding-left: 105px;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+      }
+      .icon {
+        margin-right: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: #999999;
+      }
+      .button-yellow {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>Vận chuyển hàng hóa Bắc Nam</h1>
+      </div>
+      <div class="card">
+        <div style="padding: 20px">
+          <img
+            src="https://vantaibacnam.vn/frontend/images/dvvc/vc_tietkiem.png"
+            alt="Vận chuyển ô tô"
+          />
+        </div>
+        <h3>Vận chuyển ô tô</h3>
+        <div
+          style="
+            font-size: calc(
+              12.4444444444px + 0 * ((100vw - 375px) / 825)
+            ) !important;
+            color: #999999;
+            font-family: Segoe UI Italic;
+            text-align: center;
+          "
+        >
+          Vận chuyển ô tô Bắc Nam bằng tàu hỏa là một trong những dịch vụ chủ
+          lực của Quy Long Logistics, chúng tôi là đơn vị đi đầu trong việc hệ
+          thống chuyên nghiệp dịch vụ giao ô tô door to door trọn gói tốt nhất.
+        </div>
+        <ul>
+          <li class="button-yellow">
+            <span
+              class="icon"
+              style=" background-color: orange"
+            ></span>
+          </li>
+          <li><span class="icon"></span></li>
+          <li><span class="icon"></span></li>
+          <li><span class="icon"></span></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
