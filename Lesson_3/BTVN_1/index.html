@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: rgb(239 242 245);
+        font-family: Roboto, sans-serif;
+      }
+      .card {
+        width: 550px;
+        margin: 60px auto;
+      }
+      .year {
+        background-color: rgb(239 83 33);
+        color: aliceblue;
+        line-height: 40px;
+        font-size: 20px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+      }
+      .header {
+        text-align: center;
+      }
+      .day {
+        color: aliceblue;
+        background-color: rgb(254 109 64);
+      }
+      .day h2 {
+        padding-top: 30px;
+        margin: 0;
+        font-size: 80px;
+        font-weight: 400;
+      }
+      .day div {
+        padding-bottom: 50px;
+        font-size: 30px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        font-size: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+      }
+      li {
+        padding-bottom: 5px;
+      }
+      .body {
+        padding: 30px;
+        background-color: #fff;
+
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .title {
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+      .teacher {
+        font-size: 20px;
+      }
+      button {
+        border: 0;
+        background-color: #fff;
+        color: #3d78e7;
+        font-size: 20px;
+      }
+      button:hover {
+        color: red;
+        cursor: pointer;
+    }
+      .icon {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <div class="year">2021</div>
+        <div class="day">
+          <h2>24</h2>
+          <div>Tháng 12</div>
+        </div>
+      </div>
+      <div class="body">
+        <h1 class="title">Lập trình di động Flutter cho IOS - Android</h1>
+        <div class="teacher">Giảng viên: Mr. Hieu</div>
+        <ul>
+          <li>
+            <span class="icon">
+              <i class="fa-solid fa-calendar-days"></i>
+            </span>
+            Thứ 3 , 6
+          </li>
+          <li>
+            <span class="icon"> <i class="fa-solid fa-clock"></i> </span>18h30
+            -21h30
+          </li>
+          <li>
+            <span class="icon"> <i class="fa-solid fa-location-dot"></i> </span
+            >Cơ sở Tố Hữu
+          </li>
+        </ul>
+        <button>Đăng ký</button>
+      </div>
+    </div>
+  </body>
+</html>
