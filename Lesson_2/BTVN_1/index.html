@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Qidium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        font-family: "Open Sans", sans-serif;
+        width: 650px;
+        border: 1px solid #141313;
+        margin: 60px auto;
+        padding: 20px;
+        padding-bottom: 0;
+        border-radius: 20px;
+      }
+      .header {
+        text-align: center;
+      }
+      .header h3 {
+        margin: 10px 0 0 0;
+      }
+      .header h1 {
+        color: #7559fe;
+        font-size: 40px;
+        margin: 0;
+      }
+      .header p {
+        margin: 5px;
+        font-size: 13px;
+      }
+      .form td {
+        width: 50%;
+      }
+      .form input {
+        line-height: 29px;
+        width: 300px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding-left: 5px;
+      }
+      .form-left {
+        border-right: 1px solid #898686;
+        padding-bottom: 40px;
+      }
+      .title-form {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .form-left button {
+        background-color: #7559fe;
+        color: aliceblue;
+        border: none;
+        width: 305px;
+        line-height: 35px;
+        border-radius: 5px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      .form-left p {
+        float: right;
+        margin: 10px 10px 0 0;
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .btn {
+        
+        background-color: #ffffff;
+        color: #000000;
+        width: 255px;
+        border: 1px solid #888888;
+        font-weight: 600;
+        margin-top: 3px;
+        line-height: 35px;
+        border-radius: 5px;
+      }
+      .form-right {
+        text-align: center;
+      }
+      .form-right p {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+      .form-right div {
+        font-size: 13px;
+        margin-top: 10px;
+        font-weight: 200;
+      }
+      .footer {
+        background-color: #efefef;
+        width: 100%;
+        color: #888888;
+        text-align: center;
+        height: 40px;
+      }
+      .btn img {
+        float: left;
+        width: 30px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../images/Logo-Qidium.svg" alt="Logo-Qidium" />
+        <h1>Qidium</h1>
+        <h3>Mạng hỏi đáp và chia sẻ tri thức</h3>
+        <p>
+          Cũng kết nối với +12.460 thành viên và mentor <br /><strong
+            >trong nhiều lĩnh vực nghành nghề</strong
+          >
+        </p>
+      </div>
+      <table class="form">
+        <tr>
+          <td>
+            <form class="form-left">
+              <div class="title-form">ID or Email</div>
+              <input type="text" placeholder="Tên đăng nhập hoặc Email" />
+              <div class="title-form">Password</div>
+              <input type="text" placeholder="Mật khẩu của bạn" />
+              <button>Đăng nhập</button>
+              <p>Quên mật khẩu?</p>
+            </form>
+          </td>
+          <td>
+            <div class="form-right">
+              <p>---------Hoặc---------</p>
+              <button class="btn">
+                <img src="../images/face_icon.svg" />
+                 Đăng nhập bằng Facebook 
+              </button>
+              <button class="btn">
+                <span ><img src="../images/google_icon.svg" /></span>Đăng nhập
+                bằng Google
+              </button>
+              <h6
+                style="
+                  width: 100%;
+                  font-weight: 600;
+                  font-size: 13px;
+                  margin-top: 10px;
+                  margin-bottom: 15px;
+                "
+              >
+                Đăng kí bằng Email
+              </h6>
+              <div>
+                Đăng nhập đồng nghĩa với việc đồng ý với
+                <strong> Điều kiện & điều khoản </strong>
+
+                và đã đọc <strong>Chính sách bảo mật bao gồm</strong> bộ quy tắc
+                cộng đồng của chúng tôi
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="footer">
+        <tr>
+          <td>
+            <span>About</span>
+          </td>
+          <td>
+            <span>Careers</span>
+          </td>
+          <td>
+            <span>Privacy</span>
+          </td>
+          <td>
+            <span>Terms</span>
+          </td>
+          <td>
+            <span>Contact</span>
+          </td>
+          <td>
+            <span>Languages</span>
+          </td>
+          <td>
+            <span>Qidium @ 2022</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
