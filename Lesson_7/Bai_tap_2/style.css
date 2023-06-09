@@ -1,16 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.container {
-}
 .center {
   padding-top: 50px;
 }
 .wrap-card {
   border: 1px solid #ff0000;
-  margin: 0 auto;
+
+  margin: auto;
   width: 300px;
   display: flex;
   border-radius: 50%;
@@ -20,5 +14,8 @@
   transform: rotate(180deg);
 }
 img {
+  border: 1px solid #ff0000;
+  border-radius: 50%;
+
   width: 100%;
 }
