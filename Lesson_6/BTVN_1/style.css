@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+}
+.title {
+  margin: 30px auto;
+  width: 400px;
+  text-align: center;
+}
+.title h1 {
+  margin-bottom: 30px;
+}
+// card
+
+.wrap-card {
+  margin: 30px auto;
+  width: 300px;
+}
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  height: 370px;
+  position: relative;
+}
+img {
+  width: 100%;
+  height: 222px;
+  transition-property: height, filter;
+  transition-timing-function: ease;
+  transition-duration: 1s;
+}
+.card:hover img {
+  height: 100px;
+  filter: brightness(70%);
+  object-fit: cover;
+}
+.image {
+  position: relative;
+}
+
+.image .day {
+  border-radius: 50%;
+  padding: 10px;
+  color: #fff;
+  background-color: #ff5544;
+  text-align: center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.day p {
+  font-size: 14px;
+  font-weight: 600;
+}
+.image > h4 {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #ff5544;
+  position: absolute;
+  bottom: 4px;
+  left: 0px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.content {
+  margin: 20px;
+}
+.content > p {
+  color: #ff5544;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-size: 16px;
+  position: relative;
+}
+
+.card .content > p::after {
+  content: "New York, The city in the U.S.,is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers. ";
+  position: absolute;
+  color: #a09f9f;
+  width: 250px;
+  left: 0;
+  top: 50px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.3s;
+}
+.card:hover .content > p::after {
+  opacity: 1;
+}
+.card:hover .about {
+  margin-top: 100px;
+}
+
+.about {
+  display: flex;
+  color: #a09f9f;
+  padding-bottom: 20px;
+  position: absolute;
+  bottom: 5px;
+}
+
+.about > div {
+  padding-right: 18px;
+}
+.about span {
+  padding-right: 8px;
+}
