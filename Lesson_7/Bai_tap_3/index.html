@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      .wrap {
+        background-color: aliceblue;
+        width: 800px;
+      }
+      .wrap:hover {
+        animation-name: o;
+        animation-duration: 4s;
+      }
+      .animation_1 {
+        width: 100%;
+      }
+      .o {
+        width: 10px;
+        height: 10px;
+        background-color: blue;
+      }
+      @keyframes o {
+        0% {
+          right: 0;
+          top: 0;
+        }
+        10% {
+          right: 80px;
+          top: 40px;
+        }
+        20% {
+          right: 160px;
+          top: 0;
+        }
+        30% {
+          right: 30%;
+          top: 40px;
+        }
+        40% {
+          right: 40%;
+          top: 0;
+        }
+        50% {
+          right: 50%;
+          top: 40px;
+        }
+        60% {
+          right: 60%;
+          top: 0;
+        }
+        70% {
+          right: 70%;
+          top: 40px;
+        }
+        80% {
+          right: 80%;
+          top: 0;
+        }
+        90% {
+          right: 90%;
+          top: 40px;
+        }
+        to {
+          right: 100%;
+          top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div class="animation_1">
+          <h1></h1>
+          <div>
+            <div class="o"></div>
+            <div class="">
+              _________________________________________________________________________
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
