@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumDivide_For(num) {
+        let sum = 0;
+        for (let index = 1; index <= num; index++) {
+          if (num % index === 0) {
+            sum += index;
+          }
+        }
+        return sum;
+      }
+      function sumDivide_While(num) {
+        let sum = 0;
+        let index = 1;
+        while (index <= num) {
+          if (num % index === 0) {
+            sum += index;
+          }
+          index++;
+        }
+        return sum;
+      }
+    </script>
+  </body>
+</html>

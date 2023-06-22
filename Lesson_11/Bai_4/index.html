@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calculateSum_For(Num1, Num2) {
+        let sum = 0;
+        for (
+          let index = Math.min(Num1, Num2);
+          index < Math.max(Num1, Num2);
+          index++
+        ) {
+          sum += index;
+        }
+        return sum;
+      }
+
+      function calculateSum_While(Num1, Num2) {
+        let sum = 0;
+        let index = Math.min(Num1, Num2);
+        while (index < Math.max(Num1, Num2)) {
+          sum += index;
+          index++;
+        }
+        return sum;
+      }
+    </script>
+  </body>
+</html>

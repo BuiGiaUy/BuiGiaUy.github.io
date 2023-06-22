@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calculateSum_For(startNum, endNum, divideNum) {
+        let sum = 0;
+        for (startNum; startNum <= endNum; startNum++) {
+          if (startNum % divideNum === 0) {
+            sum += startNum;
+          }
+        }
+        return sum;
+      }
+
+      function calculateSum_While(startNum, endNum, divideNum) {
+        let sum = 0;
+        // Your code using While loop
+        while (startNum <= endNum) {
+          if (startNum % divideNum === 0) {
+            sum += startNum;
+          }
+          startNum++;
+        }
+        return sum;
+      }
+    </script>
+  </body>
+</html>
