@@ -8,23 +8,36 @@
   </head>
   <body>
     <script>
-      function sumDivide_For(num) {
-        let sum = 0;
-        for (let index = 1; index <= num; index++) {
+      function isPrime(num) {
+        if (num <= 1) {
+          return false;
+        }
+        for (let index = 2; index <= Math.sqrt(num); index++) {
           if (num % index === 0) {
-            sum += index;
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function calculateSumPrimeNumber_For(startNum, endNum) {
+        let sum = 0;
+        for (let currentNum = startNum; currentNum <= endNum; currentNum++) {
+          if (isPrime(currentNum)) {
+            sum += currentNum;
           }
         }
         return sum;
       }
-      function sumDivide_While(num) {
+
+      function calculateSumPrimeNumber_While(startNum, endNum) {
         let sum = 0;
-        let index = 1;
-        while (index <= num) {
-          if (num % index === 0) {
-            sum += index;
+        let currentNum = startNum;
+        while (currentNum <= endNum) {
+          if (isPrime(currentNum)) {
+            sum += currentNum;
           }
-          index++;
+          currentNum++;
         }
         return sum;
       }
