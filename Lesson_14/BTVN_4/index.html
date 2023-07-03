@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function intersection(arr1, arr2) {
+        var set1 = new Set(arr1);
+        var commonElements = [];
+
+        for (var item of arr2) {
+          if (set1.has(item)) {
+            commonElements.push(item);
+          }
+        }
+
+        return commonElements;
+      }
+
+      var arr1 = [1, 2, 4, 5, 3];
+      var arr2 = [2, 4, 6, 1];
+      var output = intersection(arr1, arr2);
+      console.log(output);
+    </script>
+  </body>
+</html>
