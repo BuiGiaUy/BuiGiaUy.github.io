@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      function getCountElement(arr) {
+        // khởi tạo obj
+        const numObj = {};
+        //dùng for lặp qua arr
+        for (let i = 0; i < arr.length; i++) {
+          //  với  mỗi phần tử, chúng ta kiểm tra xem nó đã tồn tại trong numObj nếu không thì cho nó bằng 1 , nếu đã có thì cộng 1
+          if (numObj[arr[i]]) {
+            numObj[arr[i]] += 1;
+          } else {
+            numObj[arr[i]] = 1;
+          }
+        }
+
+        return numObj;
+      }
+      console.log(
+        getCountElement(["one", "two", "three", "one", "one", "three"])
+      );
+    </script>
+  </body>
+</html>

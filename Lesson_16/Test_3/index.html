@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      function getRandomElement(arr) {
+        // dùng floor để làm tròn
+        // dùng random nhân arr.length để chọn thứ tự ngẫu nhiên
+        let random = Math.floor(Math.random() * arr.length);
+        // chuyền sô thứ tự được làm tròn vào mảng
+        return arr[random];
+      }
+      console.log(getRandomElement([3, 7, 9, 11]));
+    </script>
+  </body>
+</html>

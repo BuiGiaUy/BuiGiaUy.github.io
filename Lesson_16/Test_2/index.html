@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      function getStringHasMaxLength(arr) {
+        // dùng map lăp arr lấy ra hết số độ dài
+        // dùng Max lấy ra số lớn nhất
+        let maxLength = Math.max(...arr.map((str) => str.length));
+        // dùng filter lặp hết str lấy ra tất cả str có độ dài lớn nhất
+        return arr.filter((str) => str.length === maxLength);
+      }
+      getStringHasMaxLength(["aba", "aa", "ad", "c", "vcd"]);
+    </script>
+  </body>
+</html>

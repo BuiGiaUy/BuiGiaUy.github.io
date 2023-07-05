@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      function getTime(time, x) {
+        // Ta dùng split tách time thành mảng rồi dùng map đổi string thành num
+        const [hour, min, sec] = time.split(":").map(Number);
+        // tính tổng số giây
+        let totalSeconds = hour * 3600 + min * 60 + sec + x;
+        // dùng totalSeconds chia 3600 để ra số giờ chia hết cho 24 để biết qua 1 ngày
+        const newHours = Math.floor(totalSeconds / 3600) % 24;
+        // dùng totalSeconds chia hết 3600 lấy số dư chia cho 60 để ra phút
+        const newMinutes = Math.floor((totalSeconds % 3600) / 60);
+        // dùng totalSeconds chia hết cho 60 để dư ra số giây bao nhiêu
+        const newSeconds = totalSeconds % 60;
+        //viết một func để có số 0 ngoài trc khi chỉ có 1 số 
+        const beforeZero = (num) => {
+          const numString = num.toString();
+          if (numString.length < 2) {
+            return "0" + numString;
+          }
+          return numString;
+        };
+        //dùng template string để chuyển các biết vào chuỗi  
+        const newTime = `${beforeZero(newHours)}:${beforeZero(
+          newMinutes
+        )}:${beforeZero(newSeconds)}`;
+
+        return newTime;
+      }
+      getTime("09:20:56", 7);
+      console.log(getTime("09:20:56", 7));
+    </script>
+  </body>
+</html>

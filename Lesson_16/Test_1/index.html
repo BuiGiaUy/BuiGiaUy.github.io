@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      function max2Numbers(arr) {
+        // dùng max chọn số lớn nhất
+        let max1 = Math.max(...arr);
+        // dùng filter chỉ lấy số khác Max1
+        arr = arr.filter((num) => num !== max1);
+        // dùng max chọn số lớn nhất trong mảng vựa tạo
+        let max2 = Math.max(...arr);
+        return max2;
+      }
+    </script>
+  </body>
+</html>
