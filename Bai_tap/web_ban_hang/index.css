@@ -1,0 +1,402 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+.header {
+}
+
+.header-top {
+  position: fixed;
+  top: 0;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  line-height: 19px;
+  width: 100%;
+  z-index: 2;
+  background-color: #fff;
+}
+.logo {
+  flex: 60%;
+}
+.logo > div {
+  padding-left: 700px;
+}
+.right {
+  flex: 40%;
+  display: flex;
+  align-items: center;
+}
+.bell {
+  cursor: pointer;
+  padding-left: 245px;
+}
+.db-block {
+  position: relative;
+}
+.db-block > div {
+  font-weight: 300;
+  color: #fff;
+  position: absolute;
+  bottom: 3px;
+  right: 2px;
+  transform: translate(50%, 50%);
+  font-size: 1.2rem;
+  width: max-content;
+}
+.db-block > div::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background-color: #47474c;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+  z-index: -1;
+  transition: 0.2s linear;
+}
+.db-block > img {
+  width: 20px;
+  height: auto;
+}
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-2px, -2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(2px, 2px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(-2px, 2px) rotate(2deg);
+  }
+}
+
+/* Apply the animation on hover */
+.bell:hover .db-block,
+.bell:hover .notification-number {
+  animation: vibrate 0.5s 2; /* Run the animation twice */
+}
+.enjoy_product {
+  margin: 0 12px;
+}
+.enjoy_product > a:hover {
+  color: black;
+}
+.enjoy_product > a {
+  color: #999;
+}
+
+.cart {
+  cursor: pointer;
+  padding-right: 12px;
+}
+.login {
+  padding-right: 12px;
+}
+
+.header-bottom {
+  margin-top: 70px;
+}
+.header-bottom > div {
+}
+.strikethrough {
+  border-top: #999 1px solid;
+  border-bottom: #999 1px solid;
+}
+.menu_wrap {
+  justify-content: space-around;
+  display: flex;
+}
+.menu_item {
+  display: block;
+  padding: 1.3rem 1.5rem;
+  font-weight: 300;
+  transition: 0.2s linear;
+  position: relative;
+  line-height: 21px;
+}
+.menu_item a {
+  color: #999;
+  position: relative;
+}
+.menu_item a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  border-radius: 999px;
+  position: absolute;
+  left: 50%;
+  bottom: -17px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease, opacity 0s 0.3s;
+  opacity: 0;
+}
+.menu_item a:hover::after {
+  width: 100%; /* Show the underline effect */
+  opacity: 1; /* Make the underline visible */
+}
+
+//footer
+.footer {
+}
+.fo-padding {
+  color: #999;
+  font-weight: 900;
+  padding: 40px 20px 20px;
+}
+.fo-padding a {
+  color: #999;
+}
+.fo-wrap {
+  display: flex;
+}
+.ft__title {
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "SVN-Futura Medium", sans-serif;
+  margin-bottom: 2.3rem;
+  text-transform: uppercase;
+}
+.fo-item {
+  flex: 25%;
+}
+.ft__list li {
+  margin-bottom: 25px;
+}
+
+.ft__list a {
+  padding: 5px;
+  margin-left: -5px;
+  color: #000;
+  font-weight: 600;
+}
+.fo-item a {
+  padding: 5px;
+  margin-left: -5px;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+  display: block;
+}
+.fo-item li {
+  margin-bottom: 30px;
+}
+.fo-item a:hover {
+  color: #000;
+  font-weight: 600;
+}
+.fo-item p {
+  margin-bottom: 20px;
+}
+.fl-wrap {
+  display: flex;
+}
+.fl-wrap a {
+  margin: 0 5px;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Định dạng nội dung sản phẩm */
+#content {
+  margin: 20px;
+}
+
+/* Định dạng danh sách sản phẩm */
+#productList {
+  list-style: none;
+  padding: 0;
+}
+
+#productList li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#productList li img {
+  margin-right: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+/* Định dạng nút xem chi tiết */
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+//Login
+
+.login-container {
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+// Register
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+// Cart
+.body {
+  width: 1320px;
+  margin: auto;
+  padding-top: 30px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-item {
+  flex-basis: 25%;
+  padding: 0 15px;
+}
+
+.card {
+  height: 370px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+.image img {
+  width: 100%;
+  height: 250px;
+}
+.content {
+  padding: 10px 20px;
+  color: #333;
+}
+.content h2 {
+  font-weight: 300;
+}
+.info {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+//detail
+#content {
+  padding: 20px;
+}
+
+.product-info {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-info h2 {
+  margin-bottom: 10px;
+}
+
+.product-info img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.product-info p {
+  margin-bottom: 5px;
+}
+
+.product-info span {
+  color: #ffd600;
+}
+
+.product-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+.product-info a:hover {
+  color: #666;
+}
