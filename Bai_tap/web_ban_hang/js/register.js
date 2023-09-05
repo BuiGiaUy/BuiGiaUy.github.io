@@ -4,6 +4,15 @@ $(document).ready(function () {
     clearErrors();
     register();
   });
+  function clearErrors() {
+    $("input[name='register_name']").next(".err_input").text("");
+    $("input[name='register_email']").next(".err_input").text("");
+    $("input[name='register_phone']").next(".err_input").text("");
+    $("input[name='register_birthday']").next(".err_input").text("");
+    $("input[name='register_pass']").next(".err_input").text("");
+    $("input[name='register_repass']").next(".err_input").text("");
+    $("#invalidCheck2").next(".err_input").text("");
+  }
 
   function register() {
     var name = $("input[name='register_name']").val();
@@ -35,7 +44,13 @@ $(document).ready(function () {
         field: "register_phone",
         message: "Vui lòng điền số điện thoại",
       });
+    } else if (phone.length !== 10) {
+      errors.push({
+        field: "register_phone",
+        message: "Số điện thoại phải có đúng 10 chữ số",
+      });
     }
+
     if (!birthday) {
       errors.push({
         field: "register_birthday",
@@ -74,18 +89,42 @@ $(document).ready(function () {
         showError(errors[i].field, errors[i].message);
       }
     } else {
+      var userInfo = {
+        name: name,
+        email: email,
+        phone: phone,
+        birthday: birthday,
+      };
+      localStorage.setItem("user_info", JSON.stringify(userInfo));
+
       var username = email;
       if (localStorage.getItem(username)) {
         $("#register-status").text("Tên đăng nhập đã tồn tại!");
+        // Replace the following line with SweetAlert
+        Swal.fire({
+          icon: "error",
+          title: "Tên đăng nhập đã tồn tại!",
+          text: "Vui lòng chọn tên đăng nhập khác.",
+        });
       } else {
         localStorage.setItem(username, pass);
         $("#register-status").text("Bạn đã đăng ký thành công");
-
-        setTimeout(function () {
-          window.location.href = "login.html";
-        }, 2000);
+        // Replace the following line with SweetAlert
+        Swal.fire({
+          icon: "success",
+          title: "Đăng ký thành công!",
+          text: "Bạn sẽ được chuyển hướng đến trang đăng nhập trong 2 giây.",
+          timer: 2000,
+          timerProgressBar: true,
+          onOpen: () => {
+            Swal.showLoading();
+          },
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "login.html";
+          }
+        });
       }
-      $("#myModal").modal("show");
     }
   }
 
@@ -111,15 +150,9 @@ $(document).ready(function () {
       $("#btn-hide-repass").removeClass("fa-eye").addClass("fa-eye-slash");
     }
   });
-
-  let isValidEmail = function (val) {
+  function isValidEmail(val) {
     return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(val);
-  };
-
-  function clearErrors() {
-    $(".err_input").text("");
   }
-
   function showError(field, message) {
     $("#" + field).text(message);
   }

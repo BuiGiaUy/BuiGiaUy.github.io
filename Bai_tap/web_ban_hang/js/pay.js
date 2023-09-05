@@ -1,19 +1,48 @@
 $(document).ready(function () {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartContainer = $("#cartContainer");
+
+  cartItems.forEach((product, index) => {
+    const cartItem = `
+        <div class="cart__item fl-ct c-cus-69f6d9656e6d591bddd0d621c5d69954" data-key="${product.productId}" data-combo="">
+          <div class="cart__img">   
+            <a class="rto-box" href="productDetail.html?id=${product.productId}">
+              <img width="300" height="300" src="${product.imgUrls[0]}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="${product.title}" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
+            </a>
+          </div>
+          <div class="cart__info">
+            <div class="wrap-title">
+              <a class="title" href="productDetail.html?id=${product.productId}">${product.title}</a>
+            </div>
+            <div class="txt">
+              <pre>Size <span class="size">${product.size[0].size}</span></pre>
+            </div>
+            <div class="fl-ct">
+              <p>x ${product.quantity}</p>
+              <div class="price mg-l mona-custom-price-item-cart">
+                <span class="woocommerce-Price-amount amount"><bdi>${product.price}&nbsp;<span class="woocommerce-Price-currencySymbol">vnđ</span></bdi></span>
+              </div>
+            </div>
+            <small class="cart__notify"> </small>
+          </div>
+        </div>
+      `;
+
+    // Append the cart item to the cart container
+    cartContainer.append(cartItem);
+  });
+
   nameUser();
   function nameUser() {
     const name = localStorage.key(0);
     const uppercaseName = name.toUpperCase();
     $("#uppercase_name").text(uppercaseName).css("font-weight", "600");
   }
-  // Kiểm tra xem đã có dữ liệu trong localStorage chưa
   let userData = JSON.parse(localStorage.getItem("user_info")) || [];
   console.log(userData);
-  // Kiểm tra nếu có dữ liệu trong mảng user_data
   if (userData.length > 0) {
-    // Lấy dữ liệu từ phần tử cuối cùng của mảng (hoặc bạn có thể chọn phần tử cụ thể trong mảng)
     const lastUserData = userData[userData.length - 1];
 
-    // Gán giá trị từ dữ liệu lấy từ localStorage vào các trường input
     $('input[name="full-name"]').val(lastUserData.fullName);
     $('input[name="email"]').val(lastUserData.email);
     $('input[name="phone-number"]').val(lastUserData.phoneNumber);
@@ -27,22 +56,17 @@ $(document).ready(function () {
     const email = $('input[name="email"]').val();
     const phoneNumber = $('input[name="phone-number"]').val();
 
-    // Kiểm tra hợp lệ (ví dụ: kiểm tra xem các trường đã được điền)
     if (fullName && email && phoneNumber) {
-      // Tạo một đối tượng chứa thông tin từ form
       const userObject = {
         fullName: fullName,
         email: email,
         phoneNumber: phoneNumber,
       };
 
-      // Thêm đối tượng này vào mảng userData
       userData.push(userObject);
 
-      // Lưu mảng userData vào localStorage
       localStorage.setItem("user_info", JSON.stringify(userData));
 
-      // Nếu dữ liệu hợp lệ, sử dụng SweetAlert để hiển thị thông báo thành công
       Swal.fire({
         title: "Thành công!",
         text: "Dữ liệu đã được gửi đi và lưu vào localStorage.",
@@ -50,7 +74,6 @@ $(document).ready(function () {
         confirmButtonText: "OK",
       });
     } else {
-      // Nếu dữ liệu không hợp lệ, sử dụng SweetAlert để hiển thị thông báo lỗi
       Swal.fire({
         title: "Lỗi!",
         text: "Vui lòng điền đầy đủ thông tin vào các trường.",

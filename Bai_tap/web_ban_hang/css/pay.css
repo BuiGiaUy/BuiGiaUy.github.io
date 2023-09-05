@@ -64,7 +64,9 @@ a {
   margin-left: 0 !important ;
 
 }
-
+.check__total  {
+  margin-bottom: 15px;
+}
 .wrap-title {
   margin-bottom: 10px;
 }

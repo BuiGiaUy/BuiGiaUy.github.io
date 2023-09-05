@@ -54,13 +54,13 @@
               </div>
               <div class="col-xxl-2 col-5" style="padding: 0">
                 <div class="logo">
-                  <div class="">
+                  <a class="" href="HomePage.html">
                     <img
                       style="width: 98px"
                       src="https://levents.asia/template/assets/images/logo.png"
                       alt=""
                     />
-                  </div>
+                  </a>
                 </div>
               </div>
               <div class="col-xxl-2 col-1"></div>
@@ -189,7 +189,7 @@
                 />
                 <p class="err_input" id="register_name"></p>
                 <input
-                  type="email"
+                  type="text"
                   name="register_email"
                   class="rs-form form__inp"
                   placeholder="Email"
@@ -197,10 +197,7 @@
                 <p class="err_input" id="register_email"></p>
 
                 <input
-                  type="tel"
                   name="register_phone"
-                  minlength="10"
-                  maxlength="10"
                   class="rs-form form__inp"
                   placeholder="Số điện thoại"
                 />
@@ -720,6 +717,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="./js/register.js"></script>
     <script src="./js/index.js"></script>
     <link

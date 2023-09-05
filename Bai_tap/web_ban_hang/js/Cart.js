@@ -88,16 +88,13 @@ $(document).ready(function () {
 
   const productContainer = $("#product-container");
 
-  // Retrieve cart items from localStorage or initialize an empty array
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-  // Function to update quantity and save changes to localStorage
   function updateQuantity(index, quantity) {
     cartItems[index].quantity = quantity;
 
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-    // Calculate the total amount and update the totalValueElement
     const totalAmount = cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
@@ -115,7 +112,6 @@ $(document).ready(function () {
   }
   function removeCartItem(index) {
     if (index >= 0 && index < cartItems.length) {
-      // Use SweetAlert to confirm the removal
       Swal.fire({
         title: "Bạn có chắc không?",
         text: "Bạn sắp xóa mặt hàng này khỏi giỏ hàng của mình.",
@@ -126,17 +122,13 @@ $(document).ready(function () {
         confirmButtonText: "Tôi chắn chắn.",
       }).then((result) => {
         if (result.isConfirmed) {
-          // Remove the item from the cartItems array
           cartItems.splice(index, 1);
 
-          // Update localStorage
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-          // Remove the item from the UI
           const removedItem = $(`.row[data-index="${index}"]`);
           removedItem.remove();
 
-          // Update the total amount
           updateTotalAmount();
 
           Swal.fire(
@@ -144,7 +136,6 @@ $(document).ready(function () {
             "Mặt hàng của bạn đã bị xóa khỏi giỏ hàng.",
             "thành Công "
           ).then(() => {
-            // Reload the page
             location.reload();
           });
         }
@@ -152,9 +143,6 @@ $(document).ready(function () {
     }
   }
 
-  // Attach a click event listener to all "Remove" buttons with class "remove-item-cart"
-
-  // Iterate through each cart item and build the HTML
   if (cartItems.length === 0) {
     productContainer.html("<p class='txt'>Giỏ hàng rỗng</p>");
   } else {
@@ -207,9 +195,7 @@ $(document).ready(function () {
       </div>
     `;
 
-      // Append the productItem HTML to the productContainer
       productContainer.append(productItem);
-      // Attach a change event listener to the quantity input
       const quantityInput = $(`input[data-index="${index}"]`);
       quantityInput.change(function () {
         const newQuantity = parseInt($(this).val());
@@ -224,7 +210,6 @@ $(document).ready(function () {
   });
   $("#pay_btn").on("click", function () {
     if (cartItems.length === 0) {
-      // Show SweetAlert message for an empty cart
       Swal.fire({
         icon: "info",
         title: "Giỏ hàng của bạn không có gì!",
@@ -232,7 +217,6 @@ $(document).ready(function () {
         confirmButtonText: "OK",
       });
     } else {
-      // Redirect to the checkout page if the cart is not empty
       window.location.href = "Pay.html";
     }
   });

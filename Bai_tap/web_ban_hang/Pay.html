@@ -50,13 +50,13 @@
               </div>
               <div class="col-xxl-2 col-5" style="padding: 0">
                 <div class="logo">
-                  <div class="">
+                  <a href="HomePage.html" class="">
                     <img
                       style="width: 98px"
                       src="https://levents.asia/template/assets/images/logo.png"
                       alt=""
                     />
-                  </div>
+                  </a>
                 </div>
               </div>
               <div class="col-xxl-2 col-1"></div>
@@ -202,7 +202,10 @@
                 >
                   <div class="form fl-wrap row">
                     <div class="col-xxl-12">
-                      <div class="form__txt" id="name_user">Mời <span id="uppercase_name"></span> điền đày đủ thông vân chuyển.</div>
+                      <div class="form__txt" id="name_user">
+                        Mời <span id="uppercase_name"></span> điền đày đủ thông
+                        vân chuyển.
+                      </div>
                     </div>
                     <div class="col-xxl-12">
                       <input
@@ -574,69 +577,7 @@
                     />
                   </div>
                 </div>
-                <div class="cart__list checkInfo">
-                  <div
-                    class="cart__item fl-ct c-cus-69f6d9656e6d591bddd0d621c5d69954"
-                    data-key="69f6d9656e6d591bddd0d621c5d69954"
-                    data-combo=""
-                  >
-                    <div class="cart__img">
-                      <a
-                        class="rto-box"
-                        href="https://levents.asia/product/levents-knit-polo-baby-blue/levents-knit-polo-black/?attribute_pa_size=size-2"
-                      >
-                        <img
-                          width="300"
-                          height="300"
-                          src="https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-300x300.jpg"
-                          class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                          alt=""
-                          loading="lazy"
-                          srcset="
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-300x300.jpg    300w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1024x1024.jpg 1024w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-150x150.jpg    150w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-768x768.jpg    768w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1536x1536.jpg 1536w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-2048x2048.jpg 2048w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-999x999.jpg    999w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1000x1000.jpg 1000w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-255x255.jpg    255w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-100x100.jpg    100w,
-                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-850x850.jpg    850w
-                          "
-                          sizes="(max-width: 300px) 100vw, 300px"
-                        />
-                      </a>
-                    </div>
-                    <div class="cart__info">
-                      <div class="wrap-title">
-                        <a
-                          class="title"
-                          href="https://levents.asia/product/levents-knit-polo-baby-blue/levents-knit-polo-black/?attribute_pa_size=size-2"
-                          >Levents® Knit Polo/ Black</a
-                        >
-                      </div>
-                      <div class="txt">
-                        <pre>Size<span class="size"> SIZE 2 </span>        </pre>
-                      </div>
-                      <div class="fl-ct">
-                        <p>x 1</p>
-                        <div class="price mg-l mona-custom-price-item-cart">
-                          <span class="woocommerce-Price-amount amount"
-                            ><bdi
-                              >530,000&nbsp;<span
-                                class="woocommerce-Price-currencySymbol"
-                                >vnđ</span
-                              ></bdi
-                            ></span
-                          >
-                        </div>
-                      </div>
-                      <small class="cart__notify"> </small>
-                    </div>
-                  </div>
-                </div>
+                <div class="cart__list checkInfo" id="cartContainer"></div>
                 <hr />
                 <div class="check__cp">
                   <form action="" id="f-coupon-cart">
@@ -671,7 +612,7 @@
                       <div>
                         <span class="woocommerce-Price-amount amount"
                           ><bdi
-                            >530,000&nbsp;<span
+                            ><span id="totalValue"></span>&nbsp;<span
                               class="woocommerce-Price-currencySymbol"
                               >vnđ</span
                             ></bdi
@@ -695,6 +636,13 @@
                         >
                       </div>
                     </div>
+                  </div>
+                  <div style="margin: 0 auto 18px">
+                    <button
+                      class="rs-form btn-pri c-whi form__submit-small m-btn-loading"
+                    >
+                      Thanh toán
+                    </button>
                   </div>
                 </div>
               </section>
@@ -1114,7 +1062,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="./js/pay.js"></script>
-    <script src="./js/index             .js"></script>
+    <script src="./js/index.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>

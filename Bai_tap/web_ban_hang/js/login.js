@@ -4,7 +4,9 @@ $(document).ready(function () {
     clearErrors();
     login();
   });
-
+  function clearErrors() {
+    $(".err_input").text("");
+  }
   function login() {
     var username = $("input[name='user_name']").val();
     var password = $("input[name='login_pass']").val();
@@ -13,7 +15,7 @@ $(document).ready(function () {
     if (username === "") {
       errors.push({ field: "user_name", message: "Vui lòng nhập Họ và Tên" });
     }
-    
+
     if (!password) {
       errors.push({ field: "login_pass", message: "Vui lòng nhập mật khẩu" });
     }
@@ -28,16 +30,23 @@ $(document).ready(function () {
       } else if (localStorage.getItem(username) !== password) {
         showError("login_pass", "Mật khẩu không đúng");
       } else {
-        $("#register-status").text("Đăng nhập thành công!");
-        $("#myModal").modal("show");
-        setTimeout(function () {
-          window.location.href = "homepage.html";
-
-        }, 600000);
+        Swal.fire({
+          icon: "success",
+          title: "Đăng nhập thành công!",
+          text: "Bạn sẽ được chuyển hướng đến trang chính sau 2 giây.",
+          timer: 2000,
+          timerProgressBar: true,
+          onOpen: () => {
+            Swal.showLoading();
+          },
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "homepage.html";
+          }
+        });
       }
     }
   }
-
   function showError(field, message) {
     $("#" + field).text(message);
   }
@@ -52,8 +61,4 @@ $(document).ready(function () {
       $("#btn-hide-pass").removeClass("fa-eye").addClass("fa-eye-slash");
     }
   });
-
-  function clearErrors() {
-    $(".err_input").text("");
-  }
 });
