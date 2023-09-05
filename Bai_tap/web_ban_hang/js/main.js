@@ -1,100 +1,80 @@
 $(document).ready(function () {
-  // Hiển thị danh sách sản phẩm khi trang chủ được tải
-  displayProducts();
+  var items = [
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-3-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-3-Behind-1000x1500.png",
+      subtitle: "LEVENTS® BASIC BOXY HOODIE/ BROWN",
+      link: "https://levents.asia/styling/",
+    },
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-3-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-3-Behind-1000x1500.png",
+      subtitle: "LEVENTS® HEART PUZZLE TEE/ BLACK",
+      link: "https://levents.asia/styling/",
+    },
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-7-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-7-Behind-1000x1500.png",
+      subtitle: "LEVENTS® HOT AIR BALLOON TEE/ CREAM",
+      link: "https://levents.asia/styling/",
+    },
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-4-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-4-Behind-1000x1500.png",
+      subtitle: "LEVENTS® FLOWER CART RAGLAN REGULAR TEE/ BLUE",
+      link: "https://levents.asia/styling/",
+    },
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-5-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Male-5-Behind-1000x1500.png",
+      subtitle: "LEVENTS® PIXEL FLOWER TEE/ BLACK",
+      link: "https://levents.asia/styling/",
+    },
+    {
+      imgFront:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-7-Front-1000x1500.png",
+      imgBehind:
+        "https://levents.asia/wp-content/uploads/2023/07/Famale-7-Behind-1000x1500.png",
+      subtitle: "LEVENTS® JOGGER TEE/ GREEN",
+      link: "https://levents.asia/styling/",
+    },
+  ];
+  generateItems("#itemContainer", items);
 
-  function displayProducts() {
-    var products = [
-      {
-        id: 1,
-        name: "Levents® Bichontour Tee",
-        image: "./images/Levents® Bichontour Tee.jpg",
-        price: "200",
-        rating: 5,
-      },
-      {
-        id: 2,
-        name: "Levents® Company & Mates Boxy Tee",
-        image: "./images/Levents® Company & Mates Boxy Tee.jpg",
-        price: "200",
-        rating: 5,
-      },
-      {
-        id: 3,
-        name: "LEVENTS® CRAYON JEANS",
-        image: "./images/LEVENTS® CRAYON JEANS.jpg",
-        price: "500",
-        rating: 5,
-      },
-      {
-        id: 4,
-        name: "Levents® Jogger Tee",
-        image: "./images/Levents® Jogger Tee.jpg",
-        price: "200",
-        rating: 5,
-      },
-      {
-        id: 5,
-        name: "LEVENTS® KHAKI PANTS",
-        image: "./images/LEVENTS® KHAKI PANTS.jpg",
-        price: "500",
-        rating: 5,
-      },
-      {
-        id: 6,
-        name: "LEVENTS® PLAY LOGO SHORTPANT",
-        image: "./images/LEVENTS® PLAY LOGO SHORTPANT.jpg",
-        price: "300",
-        rating: 5,
-      },
-      {
-        id: 7,
-        name: "LEVENTS® POPPOP CARGO PANTS",
-        image: "./images/LEVENTS® POPPOP CARGO PANTS.jpg",
-        price: "500",
-        rating: 5,
-      },
-      {
-        id: 8,
-        name: "LEVENTS®SHAPES OF HEART DROP SHOULDER TEE",
-        image: "./images/LEVENTS®SHAPES OF HEART DROP SHOULDER TEE.jpg",
-        price: "300",
-        rating: 5,
-      },
-    ];
-
-    var productList = $("#list-card");
-
-    for (var i = 0; i < products.length; i++) {
-      var product = products[i];
-      var cartItem = $('<div class="cart-item"></div>');
-      var card = $('<div class="card"></div>');
-      var anchor = $('<a href="productDetail.html?id=' + product.id + '"></a>');
-      var imageDiv = $('<div class="image"></div>');
-      var image = $('<img src="' + product.image + '" alt="" />');
-      var content = $('<div class="content"></div>');
-      var h2 = $("<h2>" + product.name + "</h2>");
-      var info = $('<div class="info"></div>');
-      var price = $("<p>" + product.price + "</p>");
-      var rating = $(
-        "<p>" +
-          product.rating +
-          ' <span><i class="fas fa-star" style="color: #ffd600"></i></span></p>'
-      );
-
-      imageDiv.append(image);
-      content.append(h2);
-      info.append(price);
-      info.append(rating);
-      content.append(info);
-      anchor.append(imageDiv);
-      anchor.append(content);
-      card.append(anchor);
-      cartItem.append(card);
-      productList.append(cartItem);
+  function generateItems(containerSelector, itemsArray) {
+    var container = $(containerSelector);
+    if (container.length) {
+      var itemsHTML = itemsArray.map(generateItemHTML).join("");
+      container.html(itemsHTML);
     }
   }
-
-  function redirectToProductDetail(productId) {
-    window.location.href = "ProductDetail.html?id=" + productId;
+  function generateItemHTML(item) {
+    var itemHTML = `
+          <div class="col-xxl-6 col-12 sty__item aos-init aos-animate" data-aos="fade-left" data-aos-duration="1000">
+            <div class="sty__img">
+              <div class="rto-box">
+                <img width="1000" height="1500" src="${item.imgFront}" class="attachment-1000x9999 size-1000x9999" alt="" loading="lazy">
+                <img width="1000" height="1500" src="${item.imgBehind}" class="attachment-1000x9999 size-1000x9999" alt="" loading="lazy">
+              </div>
+            </div>
+            <div class="sty__content fl-col txt-ct">
+              <div class="sty__subtitle">${item.subtitle}</div>
+              <a href="${item.link}" class="btn-pri-whi hov-df sty__btn mg-ct">
+                <h3>Xem bộ sưu tập</h3>
+              </a>
+            </div>
+          </div>
+        `;
+    return itemHTML;
   }
 });

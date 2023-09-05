@@ -1,0 +1,119 @@
+.sec-80 {
+  padding: 8rem 0;
+}
+.form__wrap {
+  max-width: 480px;
+}
+.con {
+  width: 100%;
+  padding: 0 1.5rem;
+  position: relative;
+  margin: 0 auto;
+}
+.sec-title {
+  font-size: 24px;
+  font-family: "SVN-Futura Medium", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 5.2rem;
+  text-align: center;
+}
+.form__title {
+  margin-bottom: 3.2rem;
+}
+.form {
+  line-height: 21px;
+}
+.form__inp {
+  width: 100%;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 1rem 0;
+  font-family: "SVN-Futura light", sans-serif;
+  transition: 0.2s linear;
+}
+
+.m-cus-btn-f-register button {
+  margin-left: auto;
+}
+.m-btn-loading {
+  position: relative;
+}
+.form__submit-small {
+  display: block;
+  padding: 5px;
+  width: 17rem;
+}
+.c-whi {
+  color: #fff;
+}
+
+.form__txt a:hover {
+  color: #000;
+}
+.form__link:hover {
+  color: #000;
+}
+.btn-pri:hover {
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.4);
+  border: 1px solid #000;
+}
+.btn-pri::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.5s ease;
+  z-index: -1;
+}
+.btn-pri {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  position: relative;
+  background-color: #47474c;
+  z-index: 1;
+  line-height: 1.5;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #47474c;
+}
+.btn-pri:hover::after {
+  height: 102%;
+}
+.form__bot {
+  margin-top: 4.5rem;
+}
+#response-register {
+  color: red;
+}
+main div {
+  font-size: 16px;
+}
+.form__link {
+  color: #009eff;
+  font-family: "SVN-Futura light", sans-serif;
+  display: inline-block;
+  transition: 0.2s linear;
+  text-decoration: none;
+}
+.aln-ct {
+  align-items: center;
+}
+.form__txtarea:focus,
+.form__inp:focus {
+  border-bottom: 1px solid #000;
+}
+.err_input {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+}
+.eye {
+  margin-top: 24px;
+  cursor: pointer;
+  color: #a29f9f;
+}

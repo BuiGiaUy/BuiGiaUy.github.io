@@ -1,16 +1,8 @@
 $(document).ready(function () {
-  var productId = getProductIdFromURL();
-  displayProductDetail(productId);
+  // Hiển thị danh sách sản phẩm khi trang chủ được tải
+  displayProducts();
 
-  function getProductIdFromURL() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var productId = urlParams.get("id");
-
-    console.log(urlParams);
-
-    return productId;
-  }
-  function displayProductDetail(productId) {
+  function displayProducts() {
     var products = [
       {
         id: 1,
@@ -70,48 +62,39 @@ $(document).ready(function () {
       },
     ];
 
-    var product = products.find(function (item) {
-      return item.id == productId;
-    });
+    var productList = $("#list-card");
 
-    if (product) {
-      var productDetail = $("#productDetail");
-      var productInfo = $('<div class="product-info"></div>');
-      var productName = $("<h2>" + product.name + "</h2>");
-      var productImage = $('<img src="' + product.image + '" alt="" />');
-      var productPrice = $("<p>Giá: " + product.price + "</p>");
-      var productRating = $(
-        "<p>Đánh giá: " +
+    for (var i = 0; i < products.length; i++) {
+      var product = products[i];
+      var cartItem = $('<div class="cart-item"></div>');
+      var card = $('<div class="card"></div>');
+      var anchor = $('<a href="productDetail.html?id=' + product.id + '"></a>');
+      var imageDiv = $('<div class="image"></div>');
+      var image = $('<img src="' + product.image + '" alt="" />');
+      var content = $('<div class="content"></div>');
+      var h2 = $("<h2>" + product.name + "</h2>");
+      var info = $('<div class="info"></div>');
+      var price = $("<p>" + product.price + "</p>");
+      var rating = $(
+        "<p>" +
           product.rating +
           ' <span><i class="fas fa-star" style="color: #ffd600"></i></span></p>'
       );
 
-      productInfo.append(productName);
-      productInfo.append(productImage);
-      productInfo.append(productPrice);
-      productInfo.append(productRating);
-
-      productDetail.append(productInfo);
-      $("#addToCartButton").click(function () {
-        addToCart(product);
-      });
-    } else {
-      var errorContainer = $("#content");
-      errorContainer.append("<p>Sản phẩm không tồn tại!</p>");
+      imageDiv.append(image);
+      content.append(h2);
+      info.append(price);
+      info.append(rating);
+      content.append(info);
+      anchor.append(imageDiv);
+      anchor.append(content);
+      card.append(anchor);
+      cartItem.append(card);
+      productList.append(cartItem);
     }
   }
-  function addToCart(product) {
-    var cartItems = localStorage.getItem("cartItems");
-    if (cartItems) {
-      cartItems = JSON.parse(cartItems);
-    } else {
-      cartItems = [];
-    }
 
-    cartItems.push(product);
-
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-    alert("Sản phẩm đã được thêm vào giỏ hàng!");
+  function redirectToProductDetail(productId) {
+    window.location.href = "ProductDetail.html?id=" + productId;
   }
 });

@@ -5,152 +5,304 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <div class="container">
-      <div class="header">
-        <div class="header-top">
-          <div class="logo">
-            <div class="">
-              <img
-                style="width: 125px"
-                src="https://levents.asia/template/assets/images/logo.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <!--  -->
-          <div class="right">
-            <div class="bell">
-              <div class="db-block">
-                <img
-                  src="https://levents.asia/template/assets/images/notification.png"
-                  alt=""
-                />
-                <div class="notification-number">1</div>
-              </div>
-            </div>
-
-            <div class="enjoy_product">
-              <a href="#wish" class="">Sản phẩm yêu thích</a>
-            </div>
-
-            <div class="ser">
-              <div class="" data-act="ser">
-                <img
-                  style="margin-right: 12px"
-                  src="https://levents.asia/template/assets/images/svg/ic-ser.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="cart">
-              <a href="Cart.html">
-                <div class="db-block">
-                  <img
-                    src="https://levents.asia/template/assets/images/svg/ic-cart.svg"
-                    alt=""
-                  />
-                  <div class="notification-number">0</div>
-                </div>
-              </a>
-            </div>
-            <div class="login">
-              <a class="" data-act="user" href="Login.html">
-                <img
-                  src="https://levents.asia/template/assets/images/svg/ic-user.svg"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="">
-              <div class="" data-act="lang">
-                <img
-                  src="https://levents.asia/template/assets/images/svg/ic-vn.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="header-bottom">
-          <div>
-            <div class="strikethrough">
-              <div class="menu_wrap">
-                <div class="menu_item">
-                  <a href="https://levents.asia/about-us/">About Us</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/shop/">Cửa hàng</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/sale/">Giảm giá</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/special-collection/"
-                    >Bộ sưu tập</a
-                  >
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/styling/">Bộ phối</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/blog/">Bài viết</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/contact/">Liên hệ</a>
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/customer-care/"
-                    >Chăm sóc Khách hàng</a
-                  >
-                </div>
-                <div class="menu_item">
-                  <a href="https://levents.asia/recruitment/">Tuyển dụng</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: 30px">
+    <div class="">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+        style="padding: 0"
+      >
         <div
-          class="login-container"
-          style="
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          "
+          class="container-fluid"
+          style="padding: 0; display: flex; flex-wrap: wrap"
         >
-          <h1>Đăng nhập</h1>
-          <form id="login-form">
-            <div class="form-group">
-              <label for="username">Tên đăng nhập:</label>
-              <input type="text" id="username" name="username" required />
+          <div class="header-top">
+            <div class="row" style="width: 100%; padding-bottom: 10px">
+              <div class="col-xxl-5 col-4" style="padding: 0">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  style="margin-left: 10px"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <div class="col-xxl-2 col-5" style="padding: 0">
+                <div class="logo">
+                  <div class="">
+                    <img
+                      style="width: 98px"
+                      src="https://levents.asia/template/assets/images/logo.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-2 col-1"></div>
+              <div class="col-xxl-3 col-2" style="padding: 0">
+                <div class="right">
+                  <div class="bell">
+                    <div class="db-block">
+                      <img
+                        src="https://levents.asia/template/assets/images/notification.png"
+                        alt=""
+                      />
+                      <div class="notification-number">1</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="enjoy_product collapse navbar-collapse"
+                    style="width: 106px; margin-top: 5px"
+                  >
+                    <a style="text-decoration: none" href="#wish" class=""
+                      >Sản phẩm yêu thích</a
+                    >
+                  </div>
+
+                  <div
+                    class="ser collapse navbar-collapse"
+                    style="justify-content: center; cursor: pointer"
+                  >
+                    <div class="" data-act="ser">
+                      <img
+                        src="https://levents.asia/template/assets/images/svg/ic-ser.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="cart">
+                    <a href="Cart.html">
+                      <div class="db-block">
+                        <img
+                          src="https://levents.asia/template/assets/images/svg/ic-cart.svg"
+                          alt=""
+                        />
+                        <div class="notification-number">0</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="login">
+                    <a class="" data-act="user" href="Login.html">
+                      <img
+                        src="https://levents.asia/template/assets/images/svg/ic-user.svg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                    <div class="" data-act="lang">
+                      <img
+                        style="width: 22px; margin-left: 13px"
+                        src="https://levents.asia/template/assets/images/svg/ic-vn.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="password">Mật khẩu:</label>
-              <input type="password" id="password" name="password" required />
+
+            <!--  -->
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div style="width: 100%; background-color: white">
+              <div class="strikethrough">
+                <div class="row" style="display: flex">
+                  <div
+                    class="menu_item col-xxl-1 col-0"
+                    style="padding: 0"
+                  ></div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/about-us/">About Us</a>
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/shop/">Cửa hàng</a>
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/sale/">Giảm giá</a>
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/special-collection/"
+                      >Bộ sưu tập</a
+                    >
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/styling/">Bộ phối</a>
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/blog/">Bài viết</a>
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/contact/">Liên hệ</a>
+                  </div>
+                  <div class="menu_item col-xxl-2 col-12">
+                    <a href="https://levents.asia/customer-care/"
+                      >Chăm sóc Khách hàng</a
+                    >
+                  </div>
+                  <div class="menu_item col-xxl-1 col-12">
+                    <a href="https://levents.asia/recruitment/">Tuyển dụng</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button type="submit">Đăng nhập</button>
-          </form>
-          <div id="login-status"></div>
+          </div>
         </div>
-      </div>
-      <div class="footer">
+      </nav>
+
+      <main class="main">
+        <div class="sec-80">
+          <div class="form__wrap con">
+            <h2 class="sec-title form__title">Đăng nhập</h2>
+            <form action="" id="mona-login-form">
+              <div class="form">
+                <div class="form__txt">
+                  Bạn chưa có tài khoản?
+                  <a
+                    href="https://levents.asia/my-account/register/"
+                    class="form__link"
+                  >
+                    Đăng ký
+                  </a>
+                </div>
+                <input
+                  type="text"
+                  name="user_name"
+                  class="rs-form form__inp"
+                  placeholder="Email hoặc Số điện thoại"
+                />
+                <p class="err_input" id="user_name"></p>
+
+                <div style="display: flex">
+                  <input
+                    type="password"
+                    name="login_pass"
+                    class="rs-form form__inp"
+                    placeholder="Mật khẩu"
+                    id="pass"
+                  />
+                  <i class="fa-solid fa-eye-slash eye" id="btn-hide-pass"></i>
+                </div>
+                <p class="err_input" id="login_pass"></p>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck2"
+                  />
+                  <label
+                    class="form-check-label"
+                    style="font-size: 16px; margin-top: 6px"
+                    for="invalidCheck2"
+                  >
+                    Ghi nhớ tài khoản
+                  </label>
+                </div>
+                <div
+                  class="fl-wrap aln-ct form__bot form__mb row"
+                  style="width: 100%"
+                >
+                  <a
+                    href="https://levents.asia/my-account/forgot-password/"
+                    class="dp-block form__link col-xxl-6"
+                    style="margin-top: 20px"
+                  >
+                    Quên mật khẩu ?
+                  </a>
+                  <button
+                    class="rs-form btn-pri c-whi form__submit-small m-btn-loading col-xxl-6"
+                    style="margin-top: 20px"
+                  >
+                    Đăng nhập
+                  </button>
+                  <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Đăng nhập</h4>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                          >
+                            &times;
+                          </button>
+                        </div>
+
+                        <div class="modal-body" id="register-status"></div>
+
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            style="margin-right: 349px"
+                          >
+                            Đóng
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="response-login"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <div
+        class="footer"
+        style="border-top: 1px solid black; padding-top: 50px"
+      >
         <div class="fo-padding">
-          <div class="fo-wrap">
-            <div style="flex: 50%">
+          <div class="row">
+            <div class="col-xxl-6">
               <div class="ft__content">
                 <div class="ft_lim wrap-wg-child">
-                  <div class="ft__title">Về chúng tôi</div>
-                  <div class="ft__mb__wrap ftBox">
+                  <div class="ft__title" id="fl-we-title" id="fl-we-title">
+                    Về chúng tôi
+                    <div class="ft__mb__btn ftBtn">
+                      <img
+                        src="https://levents.asia/template//assets/images/svg/ic-arr.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="ft__mb__wrap ftBox hide" id="fl-we">
                     <div class="textwidget ftCon">
                       <div class="ftCon">
                         <div class="ft__txt">
@@ -205,13 +357,13 @@
                 <!-- </div> -->
               </div>
             </div>
-            <div style="flex: 50%">
-              <div style="display: flex; justify-content: space-evenly">
-                <div class="fo-item">
-                  <div class="">
-                    <div class="ft__title">
+            <div class="col-xxl-6">
+              <div class="row">
+                <div class="col-xxl-6 brbt">
+                  <div class="wrap-wg-child">
+                    <div class="ft__title" id="fl-alo-title">
                       LIÊN HỆ
-                      <div class=" ">
+                      <div class="ft__mb__btn ftBtn">
                         <img
                           src="https://levents.asia/template//assets/images/svg/ic-arr.svg"
                           alt=""
@@ -219,7 +371,7 @@
                       </div>
                     </div>
                     <!-- <div class="ftCon"> -->
-                    <div class="ft__mb__wrap ftBox">
+                    <div class="ft__mb__wrap ftBox hide" id="fl-alo">
                       <ul class="ft__list ftCon">
                         <li>
                           Hotline
@@ -259,9 +411,9 @@
                     <!-- </div> -->
                   </div>
                 </div>
-                <div class="fo-item">
+                <div class="col-xxl-6 brbt">
                   <div class="wrap-wg-child">
-                    <div class="ft__title">
+                    <div class="ft__title" id="fl-product-title">
                       Danh mục sản phẩm
                       <div class="ft__mb__btn ftBtn">
                         <img
@@ -270,7 +422,7 @@
                         />
                       </div>
                     </div>
-                    <div class="ft__mb__wrap ftBox">
+                    <div class="ft__mb__wrap ftBox hide" id="fl-product">
                       <div class="menu-san-pham-footer-container ftCon">
                         <ul id="menu-san-pham-footer" class="menu">
                           <li
@@ -349,9 +501,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="fo-item">
+                <div class="col-xxl-6 brbt">
                   <div class="wrap-wg-child">
-                    <div class="ft__title">
+                    <div class="ft__title" id="fl-help-title">
                       HỖ TRỢ
                       <div class="ft__mb__btn ftBtn">
                         <img
@@ -360,7 +512,7 @@
                         />
                       </div>
                     </div>
-                    <div class="ft__mb__wrap ftBox">
+                    <div class="ft__mb__wrap ftBox hide" id="fl-help">
                       <div class="menu-menu-support-container ftCon">
                         <ul id="menu-menu-support" class="menu">
                           <li
@@ -429,7 +581,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="fo-item">
+                <div class="col-xxl-6 brbt">
                   <div class="wrap-wg-child">
                     <h6
                       style="
@@ -525,10 +677,29 @@
       </div>
     </div>
     <script
-      src="https://code.jquery.com/jquery-3.7.0.js"
-      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.8.5/antd.min.js"
+      integrity="sha512-0yDpx9OnNsuW1C3FU14r7NHHNvTR8AH3AKyeX4QinvSRjLeDzjnRrymN47INqfZvQv9HMIUEJ6bPKJn//6XcUA=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/index.js"></script>
     <script src="./js/login.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
   </body>
 </html>

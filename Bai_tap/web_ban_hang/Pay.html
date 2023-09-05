@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
+    <title>Pay</title>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/cart.css" />
+    <link rel="stylesheet" href="./css/pay.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -171,61 +171,537 @@
         </div>
       </nav>
 
-      <div class="cart_big cartJS active">
-        <div class="cart__wrap hov-df mg-l pd-30">
-          <div class="cart__head fl-ct">
-            <div class="cart__title f-thin">Giỏ hàng</div>
+      <main class="main">
+        <div class="bc">
+          <div class="con">
+            <ul
+              class="bc__list aos-init aos-animate"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <li>
+                <a href="https://levents.asia" class="hov-df bc__link"
+                  >Trang chủ</a
+                >
+              </li>
+              <li class="--active">
+                <a class="hov-df bc__link active">Thanh toán</a>
+              </li>
+            </ul>
           </div>
-          <hr />
-          <div class="cart__con">
-            <div class="wrap-mini-cart box-loading m-btn-loading">
-              <div class="cart__list count-cart" data-count="1">
-                <div id="product-container" class="row" style="width: 100%;"></div>
-              </div>
-              <hr />
-              <div class="cart__sub">
-                <div class="fl-ct cart__sub__wrap">
-                  <div class="title">Tạm tính</div>
-                  <div class="price mg-l">
-                    <span class="woocommerce-Price-amount amount"
-                      ><bdi
-                        ><span id="totalValue"></span>&nbsp;<span
-                          class="woocommerce-Price-currencySymbol"
-                          >vnđ</span
-                        ></bdi
-                      ></span
+        </div>
+        <div class="sec-80 check">
+          <div class="con fl-wrap jus-spa check__wrap row">
+            <div class="col-xxl-6 pd-0">
+              <section>
+                <h2 class="sec-title">Thông tin giao hàng</h2>
+                <form
+                  action=""
+                  id="f-user-info"
+                  class="m-btn-loading box-loading user-info-checkout"
+                >
+                  <div class="form fl-wrap row">
+                    <div class="col-xxl-12">
+                      <div class="form__txt" id="name_user">Mời <span id="uppercase_name"></span> điền đày đủ thông vân chuyển.</div>
+                    </div>
+                    <div class="col-xxl-12">
+                      <input
+                        type="text"
+                        name="full-name"
+                        class="rs-form form__inp"
+                        placeholder="Họ và tên"
+                        value=""
+                      />
+                    </div>
+                    <div class="col-xxl-6">
+                      <input
+                        type="text"
+                        name="email"
+                        class="rs-form form__inp"
+                        placeholder="Email"
+                        value=""
+                      />
+                    </div>
+                    <div class="col-xxl-6">
+                      <input
+                        name="phone-number"
+                        type="tel"
+                        pattern="^\d{10}$"
+                        class="rs-form form__inp valid-phone"
+                        placeholder="Số điện thoại"
+                        value=""
+                      />
+                    </div>
+                    <div class="col-xxl-4">
+                      <input
+                        type="text"
+                        name="birthday"
+                        onclick="(this.type='date')"
+                        class="rs-form form__inp form__date"
+                        value=""
+                        placeholder="Ngày sinh"
+                      />
+                    </div>
+                    <div class="col-xxl-8">
+                      <input
+                        type="text"
+                        name="address"
+                        class="rs-form form__inp"
+                        placeholder="Địa chỉ"
+                        value=""
+                      />
+                    </div>
+                    <!-- new -->
+                    <div
+                      class="col-xxl-4"
+                      id="m-location-province"
+                      data-auto="true"
                     >
+                      <select
+                        name="your-province"
+                        class="select2-js m-custom-select-2 rs-form form__inp m-your-province select2-hidden-accessible"
+                        data-select2-id="select2-data-1-4jce"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <option
+                          value=""
+                          disabled=""
+                          selected=""
+                          class="disable"
+                          data-select2-id="select2-data-3-u8e4"
+                        >
+                          Chọn Tỉnh/Thành phố*
+                        </option>
+                        <option data-code="HI" data-id="1" value="Hà Nội">
+                          Hà Nội
+                        </option>
+                        <option data-code="HG" data-id="2" value="Hà Giang">
+                          Hà Giang
+                        </option>
+                        <option data-code="CB" data-id="3" value="Cao Bằng">
+                          Cao Bằng
+                        </option>
+                        <option data-code="BK" data-id="4" value="Bắc Kạn">
+                          Bắc Kạn
+                        </option>
+                        <option data-code="TQ" data-id="5" value="Tuyên Quang">
+                          Tuyên Quang
+                        </option>
+                        <option data-code="LO" data-id="6" value="Lào Cai">
+                          Lào Cai
+                        </option>
+                        <option data-code="DB" data-id="7" value="Điện Biên">
+                          Điện Biên
+                        </option>
+                        <option data-code="LI" data-id="8" value="Lai Châu">
+                          Lai Châu
+                        </option>
+                        <option data-code="SL" data-id="9" value="Sơn La">
+                          Sơn La
+                        </option>
+                        <option data-code="YB" data-id="10" value="Yên Bái">
+                          Yên Bái
+                        </option>
+                        <option data-code="HO" data-id="11" value="Hòa Bình">
+                          Hòa Bình
+                        </option>
+                        <option data-code="TY" data-id="12" value="Thái Nguyên">
+                          Thái Nguyên
+                        </option>
+                        <option data-code="LS" data-id="13" value="Lạng Sơn">
+                          Lạng Sơn
+                        </option>
+                        <option data-code="QN" data-id="14" value="Quảng Ninh">
+                          Quảng Ninh
+                        </option>
+                        <option data-code="BG" data-id="15" value="Bắc Giang">
+                          Bắc Giang
+                        </option>
+                        <option data-code="PT" data-id="16" value="Phú Thọ">
+                          Phú Thọ
+                        </option>
+                        <option data-code="VT" data-id="17" value="Vĩnh Phúc">
+                          Vĩnh Phúc
+                        </option>
+                        <option data-code="BN" data-id="18" value="Bắc Ninh">
+                          Bắc Ninh
+                        </option>
+                        <option data-code="HD" data-id="19" value="Hải Dương">
+                          Hải Dương
+                        </option>
+                        <option data-code="HP" data-id="20" value="Hải Phòng">
+                          Hải Phòng
+                        </option>
+                        <option data-code="HY" data-id="21" value="Hưng Yên">
+                          Hưng Yên
+                        </option>
+                        <option data-code="TB" data-id="22" value="Thái Bình">
+                          Thái Bình
+                        </option>
+                        <option data-code="HM" data-id="23" value="Hà Nam">
+                          Hà Nam
+                        </option>
+                        <option data-code="ND" data-id="24" value="Nam Định">
+                          Nam Định
+                        </option>
+                        <option data-code="NB" data-id="25" value="Ninh Bình">
+                          Ninh Bình
+                        </option>
+                        <option data-code="TH" data-id="26" value="Thanh Hóa">
+                          Thanh Hóa
+                        </option>
+                        <option data-code="NA" data-id="27" value="Nghệ An">
+                          Nghệ An
+                        </option>
+                        <option data-code="HT" data-id="28" value="Hà Tĩnh">
+                          Hà Tĩnh
+                        </option>
+                        <option data-code="QB" data-id="29" value="Quảng Bình">
+                          Quảng Bình
+                        </option>
+                        <option data-code="QT" data-id="30" value="Quảng Trị">
+                          Quảng Trị
+                        </option>
+                        <option
+                          data-code="TT"
+                          data-id="31"
+                          value="Thừa Thiên Huế"
+                        >
+                          Thừa Thiên Huế
+                        </option>
+                        <option data-code="DA" data-id="32" value="Đà Nẵng">
+                          Đà Nẵng
+                        </option>
+                        <option data-code="QM" data-id="33" value="Quảng Nam">
+                          Quảng Nam
+                        </option>
+                        <option data-code="QG" data-id="34" value="Quảng Ngãi">
+                          Quảng Ngãi
+                        </option>
+                        <option data-code="BD" data-id="35" value="Bình Định">
+                          Bình Định
+                        </option>
+                        <option data-code="PY" data-id="36" value="Phú Yên">
+                          Phú Yên
+                        </option>
+                        <option data-code="KH" data-id="37" value="Khánh Hòa">
+                          Khánh Hòa
+                        </option>
+                        <option data-code="NT" data-id="38" value="Ninh Thuận">
+                          Ninh Thuận
+                        </option>
+                        <option data-code="BU" data-id="39" value="Bình Thuận">
+                          Bình Thuận
+                        </option>
+                        <option data-code="KT" data-id="40" value="Kon Tum">
+                          Kon Tum
+                        </option>
+                        <option data-code="GL" data-id="41" value="Gia Lai">
+                          Gia Lai
+                        </option>
+                        <option data-code="DC" data-id="42" value="Đắk Lắk">
+                          Đắk Lắk
+                        </option>
+                        <option data-code="DO" data-id="43" value="Đắk Nông">
+                          Đắk Nông
+                        </option>
+                        <option data-code="LD" data-id="44" value="Lâm Đồng">
+                          Lâm Đồng
+                        </option>
+                        <option data-code="BP" data-id="45" value="Bình Phước">
+                          Bình Phước
+                        </option>
+                        <option data-code="TN" data-id="46" value="Tây Ninh">
+                          Tây Ninh
+                        </option>
+                        <option data-code="BI" data-id="47" value="Bình Dương">
+                          Bình Dương
+                        </option>
+                        <option data-code="DN" data-id="48" value="Đồng Nai">
+                          Đồng Nai
+                        </option>
+                        <option
+                          data-code="BV"
+                          data-id="49"
+                          value="Bà Rịa - Vũng Tàu"
+                        >
+                          Bà Rịa - Vũng Tàu
+                        </option>
+                        <option data-code="HC" data-id="50" value="Hồ Chí Minh">
+                          Hồ Chí Minh
+                        </option>
+                        <option data-code="LA" data-id="51" value="Long An">
+                          Long An
+                        </option>
+                        <option data-code="TG" data-id="52" value="Tiền Giang">
+                          Tiền Giang
+                        </option>
+                        <option data-code="BT" data-id="53" value="Bến Tre">
+                          Bến Tre
+                        </option>
+                        <option data-code="TV" data-id="54" value="Trà Vinh">
+                          Trà Vinh
+                        </option>
+                        <option data-code="VL" data-id="55" value="Vĩnh Long">
+                          Vĩnh Long
+                        </option>
+                        <option data-code="DT" data-id="56" value="Đồng Tháp">
+                          Đồng Tháp
+                        </option>
+                        <option data-code="AG" data-id="57" value="An Giang">
+                          An Giang
+                        </option>
+                        <option data-code="KG" data-id="58" value="Kiên Giang">
+                          Kiên Giang
+                        </option>
+                        <option data-code="CN" data-id="59" value="Cần Thơ">
+                          Cần Thơ
+                        </option>
+                        <option data-code="HU" data-id="60" value="Hậu Giang">
+                          Hậu Giang
+                        </option>
+                        <option data-code="ST" data-id="61" value="Sóc Trăng">
+                          Sóc Trăng
+                        </option>
+                        <option data-code="BL" data-id="62" value="Bạc Liêu">
+                          Bạc Liêu
+                        </option>
+                        <option data-code="CM" data-id="63" value="Cà Mau">
+                          Cà Mau
+                        </option></select
+                      ><span
+                        class="select2 select2-container select2-container--default"
+                        dir="ltr"
+                        data-select2-id="select2-data-2-03uz"
+                        style="width: 216.663px"
+                        ><span class="selection"
+                          ><span
+                            class="select2-selection select2-selection--single"
+                            role="combobox"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            tabindex="0"
+                            aria-disabled="false"
+                            aria-labelledby="select2-your-province-5c-container"
+                            aria-controls="select2-your-province-5c-container"
+                            ><span
+                              class="select2-selection__rendered"
+                              id="select2-your-province-5c-container"
+                              role="textbox"
+                              aria-readonly="true"
+                              title="Chọn Tỉnh/Thành phố*"
+                            ></span
+                            ><span
+                              class="select2-selection__arrow"
+                              role="presentation"
+                              ><b role="presentation"></b></span></span></span
+                        ><span
+                          class="dropdown-wrapper"
+                          aria-hidden="true"
+                        ></span
+                      ></span>
+                    </div>
+                    <div class="col-xxl-4" id="m-location-district">
+                      <input
+                        type="text"
+                        name="your-district"
+                        value=""
+                        size="40"
+                        class="rs-form form__inp"
+                        placeholder="Quận/Huyện*"
+                      />
+                    </div>
+                    <div class="col-xxl-4" id="m-location-ward">
+                      <input
+                        type="text"
+                        name="your-ward"
+                        value=""
+                        size="40"
+                        class="rs-form form__inp"
+                        placeholder="Phường*"
+                      />
+                    </div>
+                    <input
+                      type="hidden"
+                      name="province-code"
+                      class="province-code"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      name="district-code"
+                      class="district-code"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      name="ward-code"
+                      class="ward-code"
+                      value=""
+                    />
+
+                    <div class="col-xxl-12">
+                      <div class="fl-wrap aln-ct form__bot">
+                        <a
+                          href="https://levents.asia/shop/"
+                          class="dp-block form__link form__back"
+                        >
+                          Tiếp tục mua sắm
+                        </a>
+                        <button
+                          class="rs-form btn-pri c-whi form__submit-small m-btn-loading"
+                        >
+                          Tiếp tục
+                        </button>
+                      </div>
+                      <div class="fl-wrap response-error">
+                        <ul></ul>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </div>
+            <div class="col-xxl-6">
+              <section>
+                <div class="fl-con">
+                  <h2 class="sec-title">Giỏ hàng</h2>
+                  <div class="check__mb__btn mg-l checkBtn">
+                    <img
+                      src="https://levents.asia/template/assets/images/svg/ic-arr.svg"
+                      alt=""
+                    />
                   </div>
                 </div>
-                <div class="txt f-ita">
-                  Các loại phí khác sẽ được tính trong phần thanh toán
-                </div>
-                <div
-                  class="dp-block cart__sub__btn btn-pri c-whi hov-df"
-                  style="cursor: pointer"
-                  id="pay_btn"
-                >
-                  Thanh toán
-                </div>
-              </div>
-              <hr />
-              <section class="sec-80 pd">
-                <div class="con">
-                  <h2 class="sec-title">SẢN PHẨM NỔI BẬT CỦA LEVENTS®</h2>
-                  <div class="row" id="productRow" ></div>
-                  <a
-                    href="https://levents.asia/shop/"
-                    class="btn-sec hov-df pd__btn mg-ct"
-                    style="margin-top: 30px"
-                    >Xem thêm</a
+                <div class="cart__list checkInfo">
+                  <div
+                    class="cart__item fl-ct c-cus-69f6d9656e6d591bddd0d621c5d69954"
+                    data-key="69f6d9656e6d591bddd0d621c5d69954"
+                    data-combo=""
                   >
+                    <div class="cart__img">
+                      <a
+                        class="rto-box"
+                        href="https://levents.asia/product/levents-knit-polo-baby-blue/levents-knit-polo-black/?attribute_pa_size=size-2"
+                      >
+                        <img
+                          width="300"
+                          height="300"
+                          src="https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-300x300.jpg"
+                          class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                          alt=""
+                          loading="lazy"
+                          srcset="
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-300x300.jpg    300w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1024x1024.jpg 1024w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-150x150.jpg    150w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-768x768.jpg    768w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1536x1536.jpg 1536w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-2048x2048.jpg 2048w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-999x999.jpg    999w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-1000x1000.jpg 1000w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-255x255.jpg    255w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-100x100.jpg    100w,
+                            https://levents.asia/wp-content/uploads/2023/06/z4367003180441_cb38293a8ae6a05e50885f9f29488a10-850x850.jpg    850w
+                          "
+                          sizes="(max-width: 300px) 100vw, 300px"
+                        />
+                      </a>
+                    </div>
+                    <div class="cart__info">
+                      <div class="wrap-title">
+                        <a
+                          class="title"
+                          href="https://levents.asia/product/levents-knit-polo-baby-blue/levents-knit-polo-black/?attribute_pa_size=size-2"
+                          >Levents® Knit Polo/ Black</a
+                        >
+                      </div>
+                      <div class="txt">
+                        <pre>Size<span class="size"> SIZE 2 </span>        </pre>
+                      </div>
+                      <div class="fl-ct">
+                        <p>x 1</p>
+                        <div class="price mg-l mona-custom-price-item-cart">
+                          <span class="woocommerce-Price-amount amount"
+                            ><bdi
+                              >530,000&nbsp;<span
+                                class="woocommerce-Price-currencySymbol"
+                                >vnđ</span
+                              ></bdi
+                            ></span
+                          >
+                        </div>
+                      </div>
+                      <small class="cart__notify"> </small>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="check__cp">
+                  <form action="" id="f-coupon-cart">
+                    <input type="hidden" name="is-cart" value="is-cart" />
+                    <div class="fl-ct data-wrap-coupon">
+                      <input
+                        type="text"
+                        list="cp-list"
+                        id="input-coupon"
+                        required=""
+                        name="code-coupon"
+                        autocomplete="off"
+                        class="rs-form form__inp form__datalist"
+                        placeholder="Mã giảm giá"
+                      />
+                      <datalist id="cp-list"> </datalist>
+
+                      <button
+                        class="rs-form btn-pri c-whi form__submit-small m-btn-loading"
+                      >
+                        Sử dụng
+                      </button>
+                    </div>
+                  </form>
+                  <div class="text-response"></div>
+                </div>
+                <hr />
+                <div class="wrap-total box-loading m-btn-loading">
+                  <div class="check__sum checkInfo">
+                    <div class="fl-con aln-ct">
+                      <div class="mg-r">Tạm tính</div>
+                      <div>
+                        <span class="woocommerce-Price-amount amount"
+                          ><bdi
+                            >530,000&nbsp;<span
+                              class="woocommerce-Price-currencySymbol"
+                              >vnđ</span
+                            ></bdi
+                          ></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="check__total f-bold">
+                    <div class="fl-con aln-ct">
+                      <div class="mg-r">Tổng</div>
+                      <div>
+                        <span class="woocommerce-Price-amount amount"
+                          ><bdi
+                            >530,000&nbsp;<span
+                              class="woocommerce-Price-currencySymbol"
+                              >vnđ</span
+                            ></bdi
+                          ></span
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
             </div>
           </div>
         </div>
-        <div class="cart__bg hov-df cartBg"></div>
-      </div>
+      </main>
 
       <div
         class="footer"
@@ -626,15 +1102,20 @@
     ></script>
 
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    /><link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      rel="stylesheet"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./js/pay.js"></script>
+    <script src="./js/index             .js"></script>
 
-    <script src="./js/cart.js"></script>
-    <script src="./js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
   </body>
