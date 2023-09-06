@@ -100,7 +100,6 @@ $(document).ready(function () {
       var username = email;
       if (localStorage.getItem(username)) {
         $("#register-status").text("Tên đăng nhập đã tồn tại!");
-        // Replace the following line with SweetAlert
         Swal.fire({
           icon: "error",
           title: "Tên đăng nhập đã tồn tại!",
@@ -109,7 +108,6 @@ $(document).ready(function () {
       } else {
         localStorage.setItem(username, pass);
         $("#register-status").text("Bạn đã đăng ký thành công");
-        // Replace the following line with SweetAlert
         Swal.fire({
           icon: "success",
           title: "Đăng ký thành công!",

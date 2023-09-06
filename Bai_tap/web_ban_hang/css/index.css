@@ -111,6 +111,7 @@ li {
   padding-left: 12px;
 }
 .login {
+  cursor: pointer;
 }
 
 .header-bottom {

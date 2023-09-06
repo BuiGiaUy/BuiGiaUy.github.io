@@ -30,20 +30,24 @@ $(document).ready(function () {
       } else if (localStorage.getItem(username) !== password) {
         showError("login_pass", "Mật khẩu không đúng");
       } else {
-        Swal.fire({
-          icon: "success",
-          title: "Đăng nhập thành công!",
-          text: "Bạn sẽ được chuyển hướng đến trang chính sau 2 giây.",
-          timer: 2000,
-          timerProgressBar: true,
-          onOpen: () => {
-            Swal.showLoading();
-          },
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "homepage.html";
-          }
-        });
+        if (username === "truyenbi02@gmail.com" && password === "111111") {
+          window.location.href = "admin.html";
+        } else {
+          Swal.fire({
+            icon: "success",
+            title: "Đăng nhập thành công!",
+            text: "Bạn sẽ được chuyển hướng đến trang chính sau 2 giây.",
+            timer: 2000,
+            timerProgressBar: true,
+            onOpen: () => {
+              Swal.showLoading();
+            },
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              window.location.href = "homepage.html";
+            }
+          });
+        }
       }
     }
   }

@@ -101,13 +101,13 @@
                       </div>
                     </a>
                   </div>
-                  <div class="login">
-                    <a class="" data-act="user" href="Login.html">
+                  <div class="login" id="logOut">
+                    <div class="" data-act="user">
                       <img
                         src="https://levents.asia/template/assets/images/svg/ic-user.svg"
                         alt=""
                       />
-                    </a>
+                    </div>
                   </div>
                   <div class="collapse navbar-collapse">
                     <div class="" data-act="lang">
@@ -180,9 +180,7 @@
               data-aos-duration="1000"
             >
               <li>
-                <a href="https://levents.asia" class="hov-df bc__link"
-                  >Trang chủ</a
-                >
+                <a href="HomePage.html" class="hov-df bc__link">Trang chủ</a>
               </li>
               <li class="--active">
                 <a class="hov-df bc__link active">Thanh toán</a>
@@ -595,11 +593,12 @@
                       />
                       <datalist id="cp-list"> </datalist>
 
-                      <button
+                      <div
+                        id="btn_discount"
                         class="rs-form btn-pri c-whi form__submit-small m-btn-loading"
                       >
                         Sử dụng
-                      </button>
+                      </div>
                     </div>
                   </form>
                   <div class="text-response"></div>
@@ -612,7 +611,7 @@
                       <div>
                         <span class="woocommerce-Price-amount amount"
                           ><bdi
-                            ><span id="totalValue"></span>&nbsp;<span
+                            ><span id="provisional"></span>&nbsp;<span
                               class="woocommerce-Price-currencySymbol"
                               >vnđ</span
                             ></bdi
@@ -620,6 +619,7 @@
                         >
                       </div>
                     </div>
+                    <div id="discount_code"></div>
                   </div>
                   <hr />
                   <div class="check__total f-bold">
@@ -628,7 +628,7 @@
                       <div>
                         <span class="woocommerce-Price-amount amount"
                           ><bdi
-                            >530,000&nbsp;<span
+                            ><span id="totalValue"></span>&nbsp;<span
                               class="woocommerce-Price-currencySymbol"
                               >vnđ</span
                             ></bdi
@@ -640,6 +640,7 @@
                   <div style="margin: 0 auto 18px">
                     <button
                       class="rs-form btn-pri c-whi form__submit-small m-btn-loading"
+                      id="pay_btn"
                     >
                       Thanh toán
                     </button>

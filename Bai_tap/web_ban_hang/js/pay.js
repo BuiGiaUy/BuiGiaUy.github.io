@@ -1,36 +1,94 @@
 $(document).ready(function () {
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
   const cartContainer = $("#cartContainer");
+  const couponInput = document.getElementById("input-coupon");
+  const btnDiscount = document.getElementById("btn_discount");
 
-  cartItems.forEach((product, index) => {
-    const cartItem = `
-        <div class="cart__item fl-ct c-cus-69f6d9656e6d591bddd0d621c5d69954" data-key="${product.productId}" data-combo="">
-          <div class="cart__img">   
-            <a class="rto-box" href="productDetail.html?id=${product.productId}">
-              <img width="300" height="300" src="${product.imgUrls[0]}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="${product.title}" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
-            </a>
+  btnDiscount.addEventListener("click", applyDiscount);
+
+  applyDiscount();
+
+  function applyDiscount() {
+    const provisionalTotal = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+
+    if (couponInput.value === "DISCOUNTCODE10") {
+      Swal.fire({
+        icon: "success",
+        title: "Áp dụng giảm giá!",
+        text: "Bạn đã được giảm giá 10%!",
+      });
+
+      const discount = provisionalTotal * 0.1;
+      const discountedTotal = provisionalTotal * 0.9;
+
+      const html = ` <div class="fl-con aln-ct">
+          <div class="mg-r">Giảm </div>
+          <div>
+            <span class="woocommerce-Price-amount amount"><bdi><span >-${discount.toFixed(
+              2
+            )}</span>&nbsp;<span class="woocommerce-Price-currencySymbol">vnđ</span></bdi></span>
           </div>
-          <div class="cart__info">
-            <div class="wrap-title">
-              <a class="title" href="productDetail.html?id=${product.productId}">${product.title}</a>
+        </div>`;
+      $("#discount_code").append(html);
+      $("#totalValue").text(discountedTotal.toFixed(2));
+    } else {
+      $("#totalValue").text(provisionalTotal.toFixed(2));
+    }
+
+    $("#provisional").text(provisionalTotal.toFixed(2));
+
+    cartContainer.empty();
+
+    cartItems.forEach((product, index) => {
+      const cartItem = `
+          <div class="cart__item fl-ct c-cus-69f6d9656e6d591bddd0d621c5d69954" data-key="${product.productId}" data-combo="">
+            <div class="cart__img">   
+              <a class="rto-box" href="productDetail.html?id=${product.productId}">
+                <img width="300" height="300" src="${product.imgUrls[0]}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="${product.title}" loading="lazy" sizes="(max-width: 300px) 100vw, 300px">
+              </a>
             </div>
-            <div class="txt">
-              <pre>Size <span class="size">${product.size[0].size}</span></pre>
-            </div>
-            <div class="fl-ct">
-              <p>x ${product.quantity}</p>
-              <div class="price mg-l mona-custom-price-item-cart">
-                <span class="woocommerce-Price-amount amount"><bdi>${product.price}&nbsp;<span class="woocommerce-Price-currencySymbol">vnđ</span></bdi></span>
+            <div class="cart__info">
+              <div class="wrap-title">
+                <a class="title" href="productDetail.html?id=${product.productId}">${product.title}</a>
               </div>
+              <div class="txt">
+                <pre>Size <span class="size">${product.size[0].size}</span></pre>
+              </div>
+              <div class="fl-ct">
+                <p>x ${product.quantity}</p>
+                <div class="price mg-l mona-custom-price-item-cart">
+                  <span class="woocommerce-Price-amount amount"><bdi>${product.price}&nbsp;<span class="woocommerce-Price-currencySymbol">vnđ</span></bdi></span>
+                </div>
+              </div>
+              <small class="cart__notify"> </small>
             </div>
-            <small class="cart__notify"> </small>
           </div>
-        </div>
-      `;
+        `;
 
-    // Append the cart item to the cart container
-    cartContainer.append(cartItem);
+      cartContainer.append(cartItem);
+    });
+  }
+  $("#pay_btn").click(function () {
+    const totalAmount = parseFloat($("#totalValue").text().replace(/\D+/g, "")); // Extract numeric value
+
+    Swal.fire({
+      title: "Chi tiết thanh toán",
+      html: `
+        <div>
+          <p>Tổng cộng: ${totalAmount} VNĐ</p>
+          <p>Quét mã QR để hoàn tất thanh toán:</p>
+          <img src="./images/qr.png" alt="QR Code" width="200" height="200">
+        </div>
+      `,
+      confirmButtonText: "OK",
+      allowOutsideClick: false, 
+    });
   });
+  applyDiscount();
 
   nameUser();
   function nameUser() {

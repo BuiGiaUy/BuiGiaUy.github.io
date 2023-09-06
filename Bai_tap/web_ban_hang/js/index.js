@@ -1,5 +1,24 @@
 $(document).ready(function () {
-  // all
+  $("#logOut").click(function () {
+    Swal.fire({
+      title: "Bạn có muốn đăng xuất?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Đăng xuất",
+      cancelButtonText: "Không",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem(username);
+        Swal.fire({
+          icon: "success",
+          title: "Đăng xuất thành công!",
+          text: "Bạn đã đăng xuất khỏi tài khoản.",
+        }).then(() => {
+          window.location.href = "login.html";
+        });
+      }
+    });
+  });
   $("#fl-we-title").click(function () {
     $("#fl-we").toggleClass("hide");
   });
