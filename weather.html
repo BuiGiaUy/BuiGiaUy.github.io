@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      const OPEN_WEATHER_KEY = "5b37ef7efbf95315efc7271e098df9c7";
+      const OPEN_WEATHER_API =
+        "https://api.openweathermap.org/data/2.5/weather?lang=vi&";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const selectElement = document.getElementById("city-select");
+        selectElement.addEventListener("change", function () {
+          const selectedCityId = selectElement.value;
+          getWeatherInfo(selectedCityId);
+        });
+      });
+      function getWeatherInfo(city_id) {
+        const city = [
+          {
+            id: 1,
+            lat: 10.758437,
+            lng: 106.561253,
+          },
+          {
+            id: 2,
+            lat: 21.025062,
+            lng: 105.828295,
+          },
+          {
+            id: 3,
+            lat: 16.027047,
+            lng: 108.118783,
+          },
+        ];
+        const apiUrl = `${OPEN_WEATHER_API}lat=${city[city_id].lat}&lon=${city[city_id].lng}&appid=${OPEN_WEATHER_KEY}`;
+        console.log(apiUrl);
+        const currentDate = new Date();
+        $.ajax({
+          url: apiUrl,
+          method: "GET",
+          dataType: "json",
+          success: function (response) {
+            console.log("response:", response);
+            document.getElementById("city").textContent =
+              response.name + "," + response.sys.country;
+            document.getElementById("current-date").textContent =
+              currentDate.toLocaleDateString();
+            document.getElementById("temperature").textContent = +Math.floor(
+              response.main.temp - 273.15
+            );
+            document.getElementById("feel").textContent =
+              "Cảm nhận : " +
+              Math.floor(response.main.feels_like - 273.15) +
+              "°C";
+            document.getElementById("wind").textContent =
+              "Tốc độ gió : " + response.wind.speed + "km/h";
+            document.getElementById("humidity").textContent =
+              "Đổ ẩm: " + response.main.humidity + "%";
+            document.getElementById("weather").textContent =
+              response.weather[0].description;
+            document.getElementById("pressure").textContent =
+              "Áp lực k.khí: " + response.main.pressure + "hAp";
+            document.getElementById("icon").src =
+              "http://openweathermap.org/img/wn/" +
+              response.weather[0].icon +
+              ".png";
+          },
+          error: function () {
+            console.log("Lỗi khi gọi Api thời tiết");
+          },
+        });
+      }
+
+      getWeatherInfo(0);
+    </script>
+    <div
+      class="bg-cyan-300 sm:w-9/12 md:w-7/12 mx-auto mt-10 text-center py-10 rounded-lg shadow-lg"
+    >
+      <h1
+        class="text-xl sm:text-2xl md:text-3xl font-semibold text-red-500 mb-6"
+      >
+        WEATHER INFORMATIONS
+      </h1>
+      <div
+        class="bg-cyan-800 w-10/12 sm:w-9/12 md:w-6/12 mx-auto mb-6 p-2 rounded-md text-white"
+      >
+        <select
+          class="bg-cyan-800 w-full text-white py-2 px-4 rounded-md"
+          id="city-select"
+        >
+          <option value="0">HCM</option>
+          <option value="1">Hanoi</option>
+          <option value="2">Danang</option>
+        </select>
+      </div>
+      <div
+        class="bg-cyan-800 w-10/12 sm:w-9/12 md:w-6/12 mx-auto text-white p-4 rounded-md"
+      >
+        <div class="flex flex-col md:flex-row items-center justify-center">
+          <img class="w-16 h-16" id="icon" src="" />
+          <div class="mt-4 md:mt-0 md:ml-4">
+            <div class="text-lg md:text-xl font-bold" id="city"></div>
+            <div class="text-xs md:text-sm" id="current-date">17/3/2023</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-4xl md:text-5xl lg:text-6xl" id="temperature">
+            27
+          </div>
+          <div class="text-lg md:text-xl lg:text-2xl">°C</div>
+          <div class="text-md md:text-lg lg:text-xl" id="weather"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div class="text-md md:text-lg lg:text-xl" id="feel"></div>
+          <div class="flex items-center">
+            <div class="text-md md:text-lg lg:text-xl" id="wind"></div>
+          </div>
+          <div class="text-md md:text-lg lg:text-xl">
+            <div class="" id="humidity"></div>
+          </div>
+          <div class="text-md md:text-lg lg:text-xl">
+            <div class="" id="pressure"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
