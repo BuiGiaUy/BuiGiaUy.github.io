@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -45,8 +45,9 @@
           },
           {
             id: 3,
-            lat: 16.027047,
-            lng: 108.118783,
+            lat: 16.048279, 
+            lng: 108.126737,
+            name: "Thành Phố Đà Nẵng",
           },
         ];
         const apiUrl = `${OPEN_WEATHER_API}lat=${city[city_id].lat}&lon=${city[city_id].lng}&appid=${OPEN_WEATHER_KEY}`;
@@ -58,8 +59,13 @@
           dataType: "json",
           success: function (response) {
             console.log("response:", response);
-            document.getElementById("city").textContent =
+            if (city_id == 2) {
+              document.getElementById("city").textContent =
+              city[2].name + "," + response.sys.country;
+            } else {
+              document.getElementById("city").textContent =
               response.name + "," + response.sys.country;
+            }
             document.getElementById("current-date").textContent =
               currentDate.toLocaleDateString();
             document.getElementById("temperature").textContent = +Math.floor(
